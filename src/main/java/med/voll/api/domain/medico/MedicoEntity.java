@@ -1,20 +1,9 @@
-package med.voll.api.medico;
+package med.voll.api.domain.medico;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.*;
+import med.voll.api.domain.endereco.DadosEnderecoDTO;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import med.voll.api.endereco.DadosEnderecoDTO;
+import javax.persistence.*;
 
 @Table(name = "medicos")
 @Entity(name = "Medico")
@@ -42,9 +31,10 @@ public class MedicoEntity {
 
 	@Embedded
 	private DadosEnderecoDTO endereco;
+	private Boolean ativo;
 
 	public MedicoEntity(DadosCadastroMedicoDTO dados) {
-
+		this.ativo = true;
 		this.nome = dados.getNome();
 		this.email = dados.getEmail();
 		this.telefone = dados.getTelefone();
@@ -53,4 +43,16 @@ public class MedicoEntity {
 		this.endereco = new DadosEnderecoDTO(dados.getEndereco());
 	}
 
+	public void atualizarInformacoes(DadosAtualizacaoMedicoTDO dados){
+
+		if(dados.getNome() != null) { this.nome = dados.getNome(); }
+
+		if(dados.getTelefone() != null) { this.telefone = dados.getTelefone(); }
+
+		if(dados.getEndereco() != null) { this.endereco.atualizaInformacoes(dados.getEndereco()); }
+	}
+
+	public void excluir() {
+		this.ativo = false;
+	}
 }

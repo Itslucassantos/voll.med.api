@@ -1,4 +1,4 @@
-package med.voll.api.endereco;
+package med.voll.api.domain.endereco;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
@@ -40,7 +40,25 @@ public class DadosEnderecoDTO {
 		this.complemento = dados.getComplemento();
 		this.numero = dados.getNumero();
 	}
-	
+
+    public void atualizaInformacoes(DadosEnderecoDTO dados) {
+
+		if (dados.getLogradouro() != null) { this.logradouro = dados.getLogradouro(); }
+
+		if (dados.getBairro() != null) { this.bairro = dados.getBairro(); }
+
+		if (dados.getCep() != null) { this.cep = dados.getCep(); }
+
+		if (dados.getUf() != null) { this.uf = dados.getUf(); }
+
+		if (dados.getCidade() != null) { this.cidade = dados.getCidade(); }
+
+		if (dados.getNumero() != null) { this.numero = dados.getNumero(); }
+
+		if (dados.getComplemento() != null) { this.complemento = dados.getComplemento(); }
+
+    }
+
 //	public DadosEndereco() {}
 //
 //	public DadosEndereco(String logradouro, String bairro, String cep, String cidade, String uf, String complemento,
