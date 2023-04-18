@@ -41,7 +41,7 @@ public class SecurityConfigurations {
                 // e a url for de login é para liberar, pq ela é pública, pode disparar sem ser autenticado.
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
                 //permitindo para a documentação.
-                .antMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
+//                .antMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                 // para qualquer outra requisição, a pessoal precisa está autenticada.
                 .anyRequest().authenticated()
                 // É importante determinar a ordem dos filtros aplicados,

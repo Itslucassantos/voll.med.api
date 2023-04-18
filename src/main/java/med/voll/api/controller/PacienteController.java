@@ -15,6 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/pacientes")
+//@SecurityRequirement(name = "bearer-key")
 public class PacienteController {
 
     private final PacienteRepository repository;

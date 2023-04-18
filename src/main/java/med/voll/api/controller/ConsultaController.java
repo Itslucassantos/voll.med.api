@@ -1,10 +1,10 @@
 package med.voll.api.controller;
 
+
 import lombok.var;
 import med.voll.api.domain.consulta.AgendaDeConsultasService;
 import med.voll.api.domain.consulta.DadosAgendamentoConsultaDTO;
 import med.voll.api.domain.consulta.DadosCancelamentoConsultaDTO;
-import med.voll.api.domain.consulta.DadosDetalhamentoConsultaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +14,8 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("consultas")
+//para colocar o token de segurança na janela de teste web
+//@SecurityRequirement(name = "bearer-key")
 public class ConsultaController {
 
     @Autowired

@@ -15,6 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/medicos")
+//@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 	
 	/*fazendo uma injeção, igual declarar seu dao para poder usar, usando a anotação @Autowired o spring
