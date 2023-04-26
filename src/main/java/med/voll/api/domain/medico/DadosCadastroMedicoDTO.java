@@ -27,8 +27,6 @@ public class DadosCadastroMedicoDTO {
 	@NotNull @Valid
 	private DadosEnderecoDTO endereco;
 	
-	public DadosCadastroMedicoDTO() {}
-	
 	public DadosCadastroMedicoDTO(String nome, String email, String telefone, String crm, Especialidade especialidade,
 			DadosEnderecoDTO endereco) {
 		super();
